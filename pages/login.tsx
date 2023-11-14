@@ -17,7 +17,7 @@ export default function Login() {
         <h1 className={styles.title}>Connexion</h1>
         <form className={styles.loginForm}>
           <label htmlFor="string">Numéro national d'électeur</label>
-          <input type="string" id="string" name="string" required />
+          <input type="string" id="nne" name="nne" required />
 
           <label htmlFor="password">Mot de passe</label>
           <input type="password" id="password" name="password" required />
