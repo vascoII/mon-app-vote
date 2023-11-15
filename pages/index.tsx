@@ -26,12 +26,12 @@ export default function Home() {
 
         <div className={styles.grid}>
           <a href="/register" className={styles.card}>
-            <h2>Inscription des Candidats &rarr;</h2>
+            <h2>Candidats &rarr;</h2>
             <p>Inscrivez-vous pour devenir un candidat.</p>
           </a>
 
           <a href="/login" className={styles.card}>
-            <h2>Connexion &rarr;</h2>
+            <h2>Electeurs &rarr;</h2>
             <p>Connectez-vous pour voter.</p>
           </a>
         </div>

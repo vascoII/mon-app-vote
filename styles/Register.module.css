@@ -41,3 +41,27 @@
 .registerButton:hover {
   background-color: #0056b3;
 }
+
+.switchForm {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.switchForm button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.switchForm button.active {
+  background-color: #0070f3;
+  color: white;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
