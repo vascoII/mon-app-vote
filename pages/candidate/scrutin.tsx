@@ -12,7 +12,7 @@ interface ScrutinsPageProps {
 }
 
 function registerAsCandidate(id: number) {
-  router.push(`/candidate/register?election=${id}`);
+  router.push(`/candidate/register?scrutin=${id}`);
 }
 
 export default function Scrutins({ scrutins }: ScrutinsPageProps) {

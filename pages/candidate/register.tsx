@@ -20,7 +20,7 @@ export default function Register() {
 
   const router = useRouter();
 
-  const { election } = router.query;
+  const { scrutin } = router.query;
 
   function switchForm() {
     setIsRegistering(!isRegistering); // Bascule entre les formulaires
@@ -103,7 +103,7 @@ export default function Register() {
             <label htmlFor="string">Election</label>
             <input
               type="text"
-              value={election}
+              value={scrutin}
               id="electionId"
               name="electionId"
               readOnly

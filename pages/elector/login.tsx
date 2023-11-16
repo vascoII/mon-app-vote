@@ -38,7 +38,7 @@ export default function Login() {
       console.log("Login réussie avec l'ID:", response.elector.nationalId);
       electorContext?.setElector(response.elector);
       // Rediriger l'utilisateur vers la page account.elector.tsx
-      router.push("/elector/account.elector"); // Utilisez la méthode push de useRouter pour rediriger
+      router.push("/elector/account"); // Utilisez la méthode push de useRouter pour rediriger
     } else {
       alert("WE HAVE A LOGIN PROBLEM HERE GUYS");
       // Gérer l'échec du login elector ici
