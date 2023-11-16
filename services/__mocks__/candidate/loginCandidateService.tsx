@@ -1,8 +1,8 @@
-// services/__mocks__/registerCandidateService.tsx
+// services/__mocks__/loginCandidateService.tsx
 
-// Une fonction mock pour enregistrer un candidat
-export const registerCandidate = async (candidateData: any) => {
-  console.log("Mock registerCandidate called with:", candidateData);
+// Une fonction mock pour enregistrer un candidate
+export const loginCandidate = async (candidateData: any) => {
+  console.log("Mock loginCandidate called with:", candidateData);
 
   // Simulez une attente pour une promesse résolue
   await new Promise((resolve) => setTimeout(resolve, 1000));

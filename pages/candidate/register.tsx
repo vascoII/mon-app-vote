@@ -2,10 +2,10 @@
 import Head from "next/head";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { registerCandidate } from "../services/__mocks__/registerCandidateService";
-import { loginCandidate } from "../services/__mocks__/loginCandidateService";
-import Layout from "../components/Layout";
-import styles from "../styles/Register.module.css";
+import { registerCandidate } from "../../services/__mocks__/candidate/registerCandidateService";
+import { loginCandidate } from "../../services/__mocks__/candidate/loginCandidateService";
+import Layout from "../../components/Layout";
+import styles from "../../styles/candidate/Register.module.css";
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -19,6 +19,8 @@ export default function Register() {
   const [isRegistering, setIsRegistering] = useState(true);
 
   const router = useRouter();
+
+  const { election } = router.query;
 
   function switchForm() {
     setIsRegistering(!isRegistering); // Bascule entre les formulaires
@@ -39,8 +41,8 @@ export default function Register() {
 
     if (response.success) {
       console.log("Inscription réussie avec l'ID:", response.candidateId);
-      // Rediriger l'utilisateur vers la page account.candidat.tsx
-      router.push("/account.candidat"); // Utilisez la méthode push de useRouter pour rediriger
+      // Rediriger l'utilisateur vers la page account.candidate.tsx
+      router.push("/account.candidate"); // Utilisez la méthode push de useRouter pour rediriger
     } else {
       alert("WE HAVE A REGISTER PROBLEM HERE GUYS");
       // Gérer l'échec de l'inscription ici
@@ -56,8 +58,8 @@ export default function Register() {
 
     if (response.success) {
       console.log("Login réussie avec l'ID:", response.candidateId);
-      // Rediriger l'utilisateur vers la page account.candidat.tsx
-      router.push("/account.candidat"); // Utilisez la méthode push de useRouter pour rediriger
+      // Rediriger l'utilisateur vers la page account.candidate.tsx
+      router.push("/account.candidate"); // Utilisez la méthode push de useRouter pour rediriger
     } else {
       alert("WE HAVE A LOGIN PROBLEM HERE GUYS");
       // Gérer l'échec de login ici
@@ -68,15 +70,15 @@ export default function Register() {
     <>
       <Head>
         <title>
-          {isRegistering ? "Inscription Candidat" : "Connexion Candidat"} - DApp
-          de Vote
+          {isRegistering ? "Inscription Candidate" : "Connexion Candidate"} -
+          DApp de Vote
         </title>
         <meta
           name="description"
           content={
             isRegistering
-              ? "Inscrivez-vous pour devenir candidat et déposez 1 ETH comme garantie."
-              : "Connectez-vous à votre espace candidat."
+              ? "Inscrivez-vous pour devenir candidate et déposez 1 ETH comme garantie."
+              : "Connectez-vous à votre espace candidate."
           }
         />
       </Head>
@@ -86,7 +88,7 @@ export default function Register() {
             onClick={() => setIsRegistering(true)}
             className={isRegistering ? styles.active : ""}
           >
-            Inscription des Candidats
+            Inscription des Candidates
           </button>
           <button
             onClick={() => setIsRegistering(false)}
@@ -98,6 +100,15 @@ export default function Register() {
         {isRegistering ? (
           // Formulaire d'inscription
           <form className={styles.registerForm} onSubmit={handleRegister}>
+            <label htmlFor="string">Election</label>
+            <input
+              type="text"
+              value={election}
+              id="electionId"
+              name="electionId"
+              readOnly
+            />
+
             <label htmlFor="string">Numéro national d'électeur</label>
             <input type="string" id="nationalId" name="nationalId" required />
 

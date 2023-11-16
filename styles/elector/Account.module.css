@@ -1,0 +1,80 @@
+/* Account.module.css */
+
+.accountContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  background-color: #f0f2f5;
+  padding: 2rem;
+}
+
+.electorInfo {
+  background-color: #fff;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.electionsContainer,
+.candidatesContainer {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.electionItem,
+.candidateItem {
+  background-color: #fff;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.electionItem:hover,
+.candidateItem:hover {
+  transform: scale(1.05);
+}
+
+.button {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* Style for headers inside the containers */
+.h3 {
+  color: #0070f3;
+  text-align: center;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .accountContainer {
+    padding: 1rem;
+  }
+
+  .electorInfo,
+  .electionsContainer,
+  .candidatesContainer {
+    width: 90%;
+  }
+
+  .button {
+    width: 100%;
+  }
+}

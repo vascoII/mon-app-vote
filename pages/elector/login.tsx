@@ -2,10 +2,10 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { loginElector } from "../services/gouv/loginElectorService";
-import styles from "../styles/Login.module.css"; // Assurez-vous de créer ce module CSS pour la page de connexion
-import Layout from "../components/Layout";
-import UserContext from "../context/UserContext";
+import { loginElector } from "../../services/gouv/elector/loginService";
+import styles from "../../styles/elector/Login.module.css"; // Assurez-vous de créer ce module CSS pour la page de connexion
+import Layout from "../../components/Layout";
+import ElectorContext from "../../context/elector/ElectorContext";
 import React, { useContext } from "react";
 
 export default function Login() {
@@ -16,7 +16,7 @@ export default function Login() {
 
   const router = useRouter();
 
-  const userContext = useContext(UserContext);
+  const electorContext = useContext(ElectorContext);
 
   // Mettre à jour l'état avec les données du formulaire
   function handleChange(event: { target: { name: any; value: any } }) {
@@ -35,13 +35,13 @@ export default function Login() {
     const response = await loginElector(formData);
 
     if (response.success) {
-      console.log("Login réussie avec l'ID:", response.user.nationalId);
-      userContext?.setUser(response.user);
-      // Rediriger l'utilisateur vers la page account.user.tsx
-      router.push("/account.user"); // Utilisez la méthode push de useRouter pour rediriger
+      console.log("Login réussie avec l'ID:", response.elector.nationalId);
+      electorContext?.setElector(response.elector);
+      // Rediriger l'utilisateur vers la page account.elector.tsx
+      router.push("/elector/account.elector"); // Utilisez la méthode push de useRouter pour rediriger
     } else {
       alert("WE HAVE A LOGIN PROBLEM HERE GUYS");
-      // Gérer l'échec du login user ici
+      // Gérer l'échec du login elector ici
     }
   }
 

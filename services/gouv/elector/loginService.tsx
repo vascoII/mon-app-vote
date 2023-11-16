@@ -23,7 +23,7 @@ export const loginElector = async (electorData: {
 
     return {
       success: true,
-      user: data,
+      elector: data,
     };
   } catch (error) {
     if (error instanceof Error) {

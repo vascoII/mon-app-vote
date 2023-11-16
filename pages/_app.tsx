@@ -2,21 +2,20 @@
 import React, { useState } from "react";
 import type { AppProps } from "next/app";
 import Layout from "../components/Layout";
-import UserContext from "../context/UserContext";
-import CandidatContext from "../context/CandidatContext";
-import "../styles/globals.css";
-import { UserInterface } from "@/interface/UserInterface";
-import { CandidatInterface } from "@/interface/CandidatInterface";
+import ElectorContext from "../context/elector/ElectorContext";
+import CandidateContext from "../context/candidate/CandidateContext";
+import { ElectorInterface } from "@/interface/ElectorInterface";
+import { CandidateInterface } from "@/interface/CandidateInterface";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const isHomePage = Component.name === "Home";
-  const [user, setUser] = useState<UserInterface | null>(null);
-  const [candidat, setCandidat] = useState<CandidatInterface | null>(null);
+  const [elector, setElector] = useState<ElectorInterface | null>(null);
+  const [candidate, setCandidate] = useState<CandidateInterface | null>(null);
 
-  // Wrap the component with the UserContext and CandidatContext providers
+  // Wrap the component with the ElectorContext and CandidateContext providers
   return (
-    <UserContext.Provider value={{ user, setUser }}>
-      <CandidatContext.Provider value={{ candidat, setCandidat }}>
+    <ElectorContext.Provider value={{ elector, setElector }}>
+      <CandidateContext.Provider value={{ candidate, setCandidate }}>
         {isHomePage ? (
           <Component {...pageProps} />
         ) : (
@@ -24,8 +23,8 @@ function MyApp({ Component, pageProps }: AppProps) {
             <Component {...pageProps} />
           </Layout>
         )}
-      </CandidatContext.Provider>
-    </UserContext.Provider>
+      </CandidateContext.Provider>
+    </ElectorContext.Provider>
   );
 }
 
